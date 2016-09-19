@@ -1,0 +1,12 @@
+# dependencies
+node_modules
+
+#outDir
+scripts
+
+# type definition
+typings
+*.d.ts
+
+# misc 
+*.log
