@@ -3,11 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   moduleId: module.id,
   selector: 'my-app',
-  template: `
-    <h1>{{title}}</h1>
-  `,
-  styleUrls: []
+  templateUrl: '../../../../src/app/app.component.html',
+  styleUrls: ['../../../../src/app/app.component.css']
 })
 export class AppComponent {
-  title = 'Angular 2';
+  
 }

@@ -11,6 +11,7 @@ import { mockedData } from './services/mocked-api/in-memory-data.service';
 
 import './rxjs-extensions';
 import { AppComponent } from './app.component';
+import { NavBarComponent } from './components/navBar/navBar.Component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { AppComponent } from './app.component';
     HttpModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    NavBarComponent
   ],
   providers: [
     { provide: XHRBackend, useClass: InMemoryBackendService }, // in-mem server

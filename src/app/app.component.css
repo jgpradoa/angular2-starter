@@ -1,0 +1,21 @@
+.my-container-center{
+    
+    /* center the div */
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    /* give it dimensions */
+    min-height: 10em;
+    width: 90%;
+    /* just for example presentation */
+    background-color: white;
+}
+
+ .background{
+    background: url(http://localhost:8000/src/app/imgs/IMG_6428.jpg);
+    background-size:cover;
+    background-repeat:no-repeat;
+    height: 100%; 
+ }
+    
