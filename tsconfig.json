@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "module": "commonjs",
     "declaration": false,
     "removeComments": true,
@@ -18,6 +18,8 @@
     "outDir": "scripts"
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "typings",
+    "../node_modules/"
   ]
 }

@@ -1,0 +1,7 @@
+ .background{
+    background: url(http://localhost:8000/imgs/IMG_6428.jpg);
+    background-size:cover;
+    background-repeat:no-repeat;
+    height: 100%; 
+ }
+    

@@ -11,11 +11,3 @@
     /* just for example presentation */
     background-color: white;
 }
-
- .background{
-    background: url(http://localhost:8000/src/app/imgs/IMG_6428.jpg);
-    background-size:cover;
-    background-repeat:no-repeat;
-    height: 100%; 
- }
-    

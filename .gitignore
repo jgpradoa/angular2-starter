@@ -10,4 +10,4 @@ typings
 
 # misc 
 *.log
-src/app/imgs
+imgs

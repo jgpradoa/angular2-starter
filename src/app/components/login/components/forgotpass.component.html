@@ -1,0 +1,20 @@
+<div id="id01" class="modal">
+  
+  <div class="modal-content animate" >
+    <div class="imgcontainer">
+      <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
+    </div>
+
+    <div class="container">
+      <label><b>e-mail</b></label>
+      <input type="text" placeholder="Enter account email" [(ngModel)]="email" name="email" required>
+      <!-- Todo call login service -->  
+      <!-- <button type="submit">Login</button> -->
+      <button (click)="reset($event)" >Reset</button>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <span class="psw"><a routerLink="/login">LogIn</a></span>
+    </div>
+  </div>
+</div>
