@@ -1,13 +1,28 @@
-.my-container-center{
-    
-    /* center the div */
-    right: 0;
-    left: 0;
-    margin-right: auto;
-    margin-left: auto;
-    /* give it dimensions */
-    min-height: 10em;
-    width: 90%;
-    /* just for example presentation */
-    background-color: white;
+.background{
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";       /* IE 8 */
+    filter: alpha(opacity=50);  /* IE 5-7 */
+    -moz-opacity: 0.5;          /* Netscape */
+    -khtml-opacity: 0.5;        /* Safari 1.x */
+    opacity: 0.5;               /* Good browsers */
+}
+
+.demo-basic {
+  padding: 0;
+}
+.demo-basic md-card-content {
+  padding: 16px;
+}
+.demo-full-width {
+  width: 100%;
+}
+
+.demo-icons {
+  font-size: 100%;
+  height: inherit;
+  vertical-align: top;
+  width: inherit;
+}
+
+.demo-card {
+  margin: 16px;
 }

@@ -1,24 +1,64 @@
-<div class="w3-container">
+<!-- <div class="w3-container">
     <ul class="topnav" id="myTopnav">
-      <li class="left"><a class="textAlign" href="/"><img alt="Brand" src="../../../../imgs/cropped-logo.png" class="header-image"></a></li>
+      <li class="left"><i class="fa fa-bars white" aria-hidden="true" (mouseenter)="op2.show($event)" style="font-size:24px; vertical-align: 27px; padding-left: 10px;"></i><a class="textAlign" href="/">
+      <img alt="Brand" src="../../../../imgs/cropped-logo.png" class="header-image"></a></li>
       
-      <li class="right">
+      <li class="right" *ngIf="user">
         <div style="position:absolute; right: 110px;">
             <i class="fa fa-user w3-xxxlarge white" aria-hidden="true"></i>    
         </div>
         <div>
             <br> 
             <p class="white" style="display: inline-block; margin-top: 0.8cm; padding-right: 1.5cm;">First floor -- 8 hrs</p>
-            <div class="dropdown" style="float:right;">
-              <i class="fa fa-bars fa-2x pull-left white" aria-hidden="true" style="position:absolute; right:25px; top:15px;"></i>
-              <div class="dropdown-content" style="top:45px;">
-                <a href="#"><i class="fa fa-home fa-2x" aria-hidden="true"></i> Home</a>
-                <a href="#"><i class="fa fa-cog fa-2x" aria-hidden="true"></i> Settings</a>
-                <a href="#"><i class="fa fa-info fa-2x" aria-hidden="true"></i> Hours info</a>
-              </div>
-            </div>
         </div>
       </li>
     </ul>
 </div>
-<br>
+<br> -->
+
+<!-- <p-overlayPanel #op2 [style]="{'kground-color':'transparent'}">
+  <div class="sidenav">  
+    <a class="closebtn" (click)="op2.toggle($event)"><i class="fa fa-times" aria-hidden="true"></i></a>
+    <a href="#"><i class="fa fa-home fa-2x" aria-hidden="true"></i> Home</a>
+    <a href="#"><i class="fa fa-cog fa-2x" aria-hidden="true"></i> Settings</a>
+    <a href="#"><i class="fa fa-info fa-2x" aria-hidden="true"></i> Hours info</a>
+  </div>
+</p-overlayPanel>
+ -->
+
+<md-sidenav #sidenav mode="side" class="app-sidenav">
+  <a class="closebtn" (click)="sidenav.toggle()"><i class="fa fa-times" aria-hidden="true"></i></a>
+  <a href="#"><i class="fa fa-home fa-2x" aria-hidden="true"></i> Home</a>
+  <a href="#"><i class="fa fa-cog fa-2x" aria-hidden="true"></i> Settings</a>
+  <a href="#"><i class="fa fa-info fa-2x" aria-hidden="true"></i> Hours info</a>
+</md-sidenav>
+
+<md-toolbar color="nav-bar">
+  <button class="app-icon-button" (click)="sidenav.toggle()">
+    <i class="material-icons app-toolbar-menu">menu</i>
+  </button>
+
+  <img alt="Brand" src="../../../../imgs/cropped-logo.png" class="header-image">
+
+  <div *ngIf="user">
+    <span class="app-action">
+      
+      <button md-button [md-menu-trigger-for]="menu">
+        <md-icon class="icon">person</md-icon>
+        <span class="white" style="display: inline-block; top: 2%; right: 4%; position: fixed;">First floor -- 8 hrs</span>
+      </button>
+      <md-menu #menu="mdMenu" >
+        <button md-menu-item>Lemon</button>
+        <button md-menu-item>Lime</button>
+        <button md-menu-item>Banana</button>
+      </md-menu>
+    </span>
+    <!-- <div style="position:absolute; right: 110px;">
+        <i class="fa fa-user w3-xxxlarge white" aria-hidden="true"></i>    
+    </div>
+    <div>
+        <br> 
+        <p class="white" style="display: inline-block; margin-top: 0.8cm; padding-right: 1.5cm;">First floor -- 8 hrs</p>
+    </div> -->
+  </div>
+</md-toolbar>

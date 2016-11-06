@@ -7,21 +7,22 @@ import { LogInRoutingModule } from './router/login-routing.module';
 import { LogInComponent } from './components/login.component';
 import { ForgotPassComponent } from './components/forgotpass.component';
 
-import { LoginService } from './services/login.service';
 import { ForgotPassService } from './services/forgotPass.service';
 
+
+import {MaterialModule} from '@angular/material';
 
 @NgModule({
   imports: [
     FormsModule,
-    LogInRoutingModule
+    LogInRoutingModule,
+    MaterialModule.forRoot()
   ],
   declarations: [
     LogInComponent,
     ForgotPassComponent
   ],
   providers: [
-    LoginService,
     ForgotPassService
   ]
 })
