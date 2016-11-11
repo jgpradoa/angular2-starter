@@ -1,20 +1,22 @@
-<div id="id01" class="modal">
-  
-  <div class="modal-content animate" >
-    <div class="imgcontainer">
-      <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
-    </div>
+<div class="container">
+  <md-card class="demo-card demo-basic">
+    <md-card-content style="font-size: 18px;">
+      <div class="imgcontainer">
+          <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
+      </div>
 
-    <div class="container">
-      <label><b>e-mail</b></label>
-      <input type="text" placeholder="Enter account email" [(ngModel)]="email" name="email" required>
-      <!-- Todo call login service -->  
-      <!-- <button type="submit">Login</button> -->
-      <button (click)="reset($event)" >Reset</button>
-    </div>
+      <md-input #emailInput class="demo-full-width" placeholder="Account E-mail" required>
+        <md-hint align="left">
+              <div class="alert success">
+                <strong>Success!</strong> An e-mail has been sent to this e-mail
+              </div>
+        </md-hint>
+      </md-input>
+      <button md-raised-button color="primary" (click)="reset($event)">Reset</button>
 
-    <div class="container" style="background-color:#f1f1f1">
-      <span class="psw"><a routerLink="/login">LogIn</a></span>
-    </div>
-  </div>
+      <div style="background-color:#f1f1f1">
+        <span class="psw"><a routerLink="/login">LogIn</a></span>
+      </div>
+    </md-card-content>
+  </md-card>
 </div>

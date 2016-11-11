@@ -1,6 +1,8 @@
 // user.service.ts
 import { Injectable } from '@angular/core';
-//import { Http, Headers } from '@angular/http';
+import { Headers, Http, Response } from '@angular/http';
+
+import 'rxjs/add/operator/toPromise';
 
 //add auth0 with JWT
 
@@ -8,7 +10,7 @@ import { Injectable } from '@angular/core';
 export class UserService {
   private loggedIn:boolean  = false;
 
-  constructor() {
+  constructor(private http: Http) { 
     if(localStorage.getItem('auth_token'))
       this.loggedIn = localStorage.getItem('auth_token') == "true";
   }
@@ -51,6 +53,6 @@ export class UserService {
   }
 
   isLoggedIn() {
-    return this.loggedIn;
+    return localStorage.getItem('auth_token') == "true";
   }
 }

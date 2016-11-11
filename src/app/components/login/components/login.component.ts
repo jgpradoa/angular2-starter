@@ -11,8 +11,6 @@ import {Observable} from 'rxjs/Observable';
   styleUrls: ['../../../../src/app/components/login/components/login.component.css']
 })
 export class LogInComponent implements OnInit {
-	userName: String;
-	pass: String;
   @ViewChild('userInput') user: any;
   @ViewChild('paswInput') password: any;
   userObs: Observable<FocusEvent>;
@@ -33,26 +31,33 @@ export class LogInComponent implements OnInit {
   }
 
 
-  
+  //call service and make service validate the inputs
   logIn(event: any) {
   	console.log("clicked log in");
   	event.preventDefault();
-    let user: String = this.user.value;
-    let pass: String = this.password.value;
-    if(user == "")
+    let userInput: String = this.user.value;
+    let passInput: String = this.password.value;
+    if(userInput == ""){
       this.userError = "please enter username";
+    }
+    else
+      this.userError = "";
 
-    if(pass == "")
+    if(passInput == ""){
       this.passError = "please enter password";
+    }
+    else
+      this.passError = "";
 
-    console.log("username " + this.user.value + "passw: " + this.password.value);
+    console.log("username " + userInput + "passw: " + passInput);
 
-    /*localStorage.setItem('id_token', "12345");
-  	let loggedin: boolean = this.loginService.logIn(this.userName,this.pass);
-  	if(loggedin){
-  		this.router.navigate(['/']);
-  	}else{
-  		console.log("error");
-  	}*/
+    if(userInput != "" && passInput != ""){
+      //change to observable
+    	if(this.loginService.logIn(userInput,passInput)){
+    		this.router.navigate(['/']);
+    	}else{
+    		console.log("error");
+    	}
+    }
   }
 }

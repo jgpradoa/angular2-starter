@@ -18,6 +18,7 @@
 .app-sidenav {
   padding: 10px;
   min-width: 100px;
+  z-index: 10;
 }
 
 .app-action {
@@ -56,8 +57,23 @@
 
 .white {color: #f2f2f2;}
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
+.logo { margin-top: 20px; }
+
+@media (max-width: 480px) { 
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+    .logo {
+      height: 80%;
+      margin-top: 0px;
+    }
+    .app-sidenav {
+      padding: 10px;
+      width: 150px;
+      z-index: 10;
+    }
+}
+
+.app-sidenav {
+  padding: 10px;
+  min-width: 100px;
 }

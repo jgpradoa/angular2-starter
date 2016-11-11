@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { LogInModule } from '../components/login/login.module';
@@ -12,15 +13,14 @@ import { BrotherSearchComponent } from '../components/search/brotherSearch.compo
 import { LoggedInComponent } from '../components/loggedin/loggedin.component';
 
 import { UserService } from '../services/user.service';
+import { GeoLocationService } from '../services/geolocation.service';
 
 //prime ng
 import {OverlayPanelModule, AutoCompleteModule} from 'primeng/primeng';
 //material
 import {MaterialModule} from '@angular/material';
 
-
-// Add the RxJS Observable operators we need in this app.
-import '../rxjs-operators';
+import '../rxjs-extensions';
 
 @NgModule({
   imports: [
@@ -30,6 +30,7 @@ import '../rxjs-operators';
     LogInModule,
     OverlayPanelModule,
     AutoCompleteModule,
+    HttpModule,
     MaterialModule.forRoot()
   ],
   declarations: [
@@ -39,7 +40,8 @@ import '../rxjs-operators';
     LoggedInComponent
   ],
   providers: [
-    UserService
+    UserService,
+    GeoLocationService
   ],
   bootstrap: [ AppComponent ]
 })

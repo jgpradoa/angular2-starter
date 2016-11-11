@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 
+import { GeoLocationService } from './../../services/geolocation.service';
+
+import 'rxjs/add/operator/toPromise';
+
 //To-do
 // break this down
 
@@ -20,8 +24,18 @@ export class LoggedInComponent {
     isDisabled: boolean = false;
     clickCounter: number = 0;
 
-    constructor(){
+    //Observable
+
+    constructor(private geoLocationService:GeoLocationService){
         this.filteredBrothers = this.brothers;
+        geoLocationService.getLocationSubj().subscribe((value: any) => console.log('Received value: ' + JSON.stringify(value)));
+        geoLocationService.getLocation();
+        
+        console.log('done!');
+
+        /*console.log('Latitude : ' + crd.latitude);
+        console.log('Longitude: ' + crd.longitude);
+        console.log('More or less ' + crd.accuracy + ' meters.');*/
     }
         
     filterBrands(event: any) {
@@ -54,5 +68,5 @@ export class LoggedInComponent {
         if(values.length == 0)
             this.filteredBrothers = this.brothers;
 
-      }
+    }
 }

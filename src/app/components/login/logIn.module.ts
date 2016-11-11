@@ -10,12 +10,15 @@ import { ForgotPassComponent } from './components/forgotpass.component';
 import { ForgotPassService } from './services/forgotPass.service';
 
 
-import {MaterialModule} from '@angular/material';
+import { MaterialModule } from '@angular/material';
+
+import { MessagesModule } from 'primeng/primeng';
 
 @NgModule({
   imports: [
     FormsModule,
     LogInRoutingModule,
+    MessagesModule,
     MaterialModule.forRoot()
   ],
   declarations: [
