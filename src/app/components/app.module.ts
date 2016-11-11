@@ -16,7 +16,7 @@ import { UserService } from '../services/user.service';
 import { GeoLocationService } from '../services/geolocation.service';
 
 //prime ng
-import {OverlayPanelModule, AutoCompleteModule} from 'primeng/primeng';
+import {OverlayPanelModule, AutoCompleteModule, DropdownModule} from 'primeng/primeng';
 //material
 import {MaterialModule} from '@angular/material';
 
@@ -31,6 +31,7 @@ import '../rxjs-extensions';
     OverlayPanelModule,
     AutoCompleteModule,
     HttpModule,
+    DropdownModule,
     MaterialModule.forRoot()
   ],
   declarations: [

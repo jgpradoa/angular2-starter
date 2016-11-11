@@ -40,11 +40,11 @@ export class UserService {
     return true;
   }*/
 
-  logIn(userName: String, pass: String): boolean{
+  logIn(userName: String, pass: String): Boolean {
     console.log("User: " + userName + " pass: " + pass);
     this.loggedIn = true;
     localStorage.setItem('auth_token', "" + this.loggedIn);
-    return true;
+    return this.loggedIn;
   }
   
   logout() {
