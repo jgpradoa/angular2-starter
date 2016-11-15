@@ -1,51 +1,44 @@
-<!-- <div class="w3-container my-container-center">
-  <div class="ui-grid ui-grid-responsive ui-grid-pad">
-    <div class="ui-grid-row main-search" >
-        <p-autoComplete [(ngModel)]="brother" [suggestions]="filteredBrothers" (completeMethod)="filterBrands($event)" [size]="30"
-        [minLength]="1" placeholder="Brother's Name.." [dropdown]="true" (onDropdownClick)="handleDropdownClick($event)" (onSelect)="selectedBrother($event)">
-        <template let-brother>
-            <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
-                <div style="font-size:18px;float:right;margin:10px 10px 0 0">{{brother}}</div>
-            </div>
-        </template>
-    </p-autoComplete>
-    </div>
-    <div class="ui-grid-row" *ngIf="filteredBrothers.length > 0">
-        <div class="ui-grid-col-8 w3-border w3-border-purple w3-margin" *ngFor="let bro of filteredBrothers; let i = index;">
-            <p><i class="fa fa-info" aria-hidden="true"></i> {{bro}}<br><i class="fa fa-map-marker" aria-hidden="true"></i> second floor in Architecture and Fine Arts Library<br><i class="fa fa-phone-square" aria-hidden="true"></i>: 3524663805</p>
-        </div>
-    </div>
-    <div class="ui-grid-row" *ngIf="filteredBrothers.length == 0">
-        <div class="ui-grid-col-8 w3-border w3-border-purple w3-margin" *ngFor="let bro of brothers; let i = index;">
-            <p><i class="fa fa-info" aria-hidden="true"></i> {{bro}}<br><i class="fa fa-map-marker" aria-hidden="true"></i> second floor in Architecture and Fine Arts Library<br><i class="fa fa-phone-square" aria-hidden="true"></i>: 3524663805</p>
-        </div>   
-    </div>
-</div>
-
-<div class="w3-container">
-  <h5>Footer</h5>
-</div> -->
-
-<div class="app-content" style="padding-left: 10%; padding-top: 1%;">
-    <md-card style="width: 94%; padding-left: 35%;">
+<div class="row">
+    <div class="col-s-12 col-lg-12 search-div">
        <p-autoComplete [(ngModel)]="brother" [suggestions]="filteredBrothers" (completeMethod)="filterBrands($event)" [size]="30"
         [minLength]="1" placeholder="Brother's Name.." [dropdown]="true" (onDropdownClick)="handleDropdownClick($event)" (onSelect)="selectedBrother($event)" (keyup)="clearInp($event)">
             <template let-brother>
                 <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
-                    <div style="font-size:18px;float:right;margin:10px 10px 0 0">{{brother}}</div>
+                    <div style="font-size:18px;float:right;margin:10px 10px 0 0">{{brother.name}}</div>
                 </div>
             </template>
         </p-autoComplete>
-        <p-dropdown [options]="libraries" [(ngModel)]="selectedLib" [filter]="true" (onChange)="libraryFilter($event)"></p-dropdown>
-        selected: {{selectedLib}}
-    </md-card>
-    <md-card style="width: 94%;">
-        <md-card *ngFor="let bro of filteredBrothers; let i = index;" style="width: 23%; display: inline-block; margin: 5px;">
+        <button md-raised-button (click)="showDialog()" style="height: 30px;"><i class="fa fa-filter fa-lg" aria-hidden="true"></i></button>
+    </div>
+    
+    <div class="col-s-12 col-lg-12 cards-div">
+        <md-card *ngFor="let bro of filteredBrothers; let i = index;" class="card">
            <md-card-title-group>
               <img md-card-sm-image src="">
               <md-card-title>{{bro.name}}</md-card-title>
               <md-card-subtitle>{{bro.location}}</md-card-subtitle>
            </md-card-title-group>
         </md-card>
-    </md-card>
+    </div>
+</div> 
+
+<div class="modal" *ngIf="display">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" (click)="display=false">x</span>
+    <p style="margin-left: 35%;">Filter By Library</p>
+    <div class="row" style="margin-left: 35%;">
+        <md-checkbox (change)="filterBy('ML')">Marston Library</md-checkbox>
+    </div>
+    <div class="row" style="margin-left: 35%;">
+        <md-checkbox (change)="filterBy('WL')" #cb>West Library</md-checkbox>
+    </div>
+
+    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix" style="margin-left: 30%;">
+            <button md-raised-button (click)="display=false">Filter</button>
+            <button md-raised-button (click)="display=false">Clear</button>
+    </div>
+  </div>
+
 </div>

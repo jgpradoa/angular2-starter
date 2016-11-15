@@ -1,0 +1,32 @@
+<div class="col-s-12 col-lg-12 search-div">
+   <p-autoComplete [(ngModel)]="brother" [suggestions]="filteredBrothers" (completeMethod)="filterBrands($event)" [size]="50"
+    [minLength]="1" placeholder="Brother's Name.." [dropdown]="true" (onDropdownClick)="handleDropdownClick($event)" (onSelect)="selectedBrother($event)" (keyup)="clearInp($event)">
+        <template let-brother>
+            <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
+                <div style="font-size:18px;float:right;margin:10px 10px 0 0">{{brother.name}}</div>
+            </div>
+        </template>
+    </p-autoComplete>
+    <button md-raised-button (click)="showDialog()">DIALOG</button>
+</div>
+
+
+<div class="modal" *ngIf="display">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" (click)="display=false">x</span>
+    <p>Filter By Library</p>
+    <div class="row">
+        <md-checkbox (change)="filterBy('ML')">Marston Library</md-checkbox>
+    </div>
+    <div class="row">
+        <md-checkbox (change)="filterBy('WL')" #cb>West Library</md-checkbox>
+    </div>
+
+    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+            <button md-raised-button (click)="display=false">No</button>
+            <button md-raised-button (click)="display=false">Yes</button>
+    </div>
+  </div>
+
+</div>

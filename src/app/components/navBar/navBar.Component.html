@@ -26,7 +26,7 @@
 </p-overlayPanel>
  -->
 
-<md-sidenav #sidenav mode="side" class="app-sidenav">
+<!-- <md-sidenav #sidenav mode="side" class="app-sidenav">
   <a class="closebtn" (click)="sidenav.toggle()"><i class="fa fa-times" aria-hidden="true"></i></a>
   <a href="#"><i class="fa fa-home fa-2x" aria-hidden="true"></i> Home</a>
   <a href="#"><i class="fa fa-cog fa-2x" aria-hidden="true"></i> Settings</a>
@@ -53,12 +53,81 @@
         <button md-menu-item>Banana</button>
       </md-menu>
     </span>
-    <!-- <div style="position:absolute; right: 110px;">
+     <div style="position:absolute; right: 110px;">
         <i class="fa fa-user w3-xxxlarge white" aria-hidden="true"></i>    
     </div>
     <div>
         <br> 
         <p class="white" style="display: inline-block; margin-top: 0.8cm; padding-right: 1.5cm;">First floor -- 8 hrs</p>
-    </div> -->
+    </div> 
   </div>
-</md-toolbar>
+</md-toolbar> -->
+
+
+
+<!-- Static navbar -->
+<nav class="navbar" style="background-color: transparent;">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-sm-5 col-md-6">
+          <div class="navbar-header">
+            <img alt="Brand" src="../../../../imgs/cropped-logo.png" class="logo">
+          </div>
+      </div>
+      <div class="col-sm-5 col-md-6 offset-md-0">
+            <span class="white menu-icon"><i class="fa fa-bars fa-3x top-left" aria-hidden="true"></i></span>
+      </div>
+    </div>
+
+    <div class="mobile">
+      <div class="row profile backGColor">
+        <div class="col-md-3">
+          <div class="profile-sidebar">
+            <!-- SIDEBAR USERPIC -->
+            <div class="profile-userpic">
+              <img src="../../../../imgs/profile--picture.png" class="img-responsive" alt="">
+            </div>
+            <!-- END SIDEBAR USERPIC -->
+            <!-- SIDEBAR USER TITLE -->
+            <div class="profile-usertitle">
+              <div class="profile-usertitle-name">
+                Marcus Doe
+              </div>
+              <div class="profile-usertitle-job">
+                Marston Library
+              </div>
+            </div>
+            <!-- END SIDEBAR USER TITLE -->
+            <!-- SIDEBAR MENU -->
+            <div class="profile-usermenu">
+              <ul class="nav">
+                <li class="active">
+                  <a href="#">
+                  <i class="glyphicon glyphicon-home"></i>
+                  Overview </a>
+                </li>
+                <li>
+                  <a href="#">
+                  <i class="glyphicon glyphicon-user"></i>
+                  Account Settings </a>
+                </li>
+                <li>
+                  <a href="#" target="_blank">
+                  <i class="glyphicon glyphicon-ok"></i>
+                  Tasks </a>
+                </li>
+                <li>
+                  <a href="#">
+                  <i class="glyphicon glyphicon-flag"></i>
+                  Help </a>
+                </li>
+              </ul>
+            </div>
+            <!-- END MENU -->
+          </div>
+        </div>
+      </div>
+    </div><!--/end of mobile -->
+  </div><!--/.container-fluid -->
+</nav>

@@ -27,15 +27,21 @@ export class LoggedInComponent {
     libraries: any[];
     selectedLib: String;
 
+    display: boolean = false;
+
+    showDialog() {
+        this.display = true;
+    }
+
     //Observable
 
     constructor(private geoLocationService:GeoLocationService){
 
-        this.brothers = [{name: 'Sebastian', location: "London Library"},{name: 'Christopher', location: "USA Library"},{name:'Kevin', location: "Rome Library"},
-                         {name:'Josue', location: "London Library"},{name: 'Juan', location: "USA Library"},{name: 'Eddy', location: "Mexico Library"},
-                         {name: 'Jose', location: "London Library"},{name: 'Isaac', location: "USA Library"},{name: 'Juan-luis', location: "Mexico Library"}];
+        this.brothers = [{name: 'Sebastian', location: "London"},{name: 'Christopher', location: "USA"},{name:'Kevin', location: "Rome"},
+                         {name:'Josue', location: "London"},{name: 'Juan', location: "USA"},{name: 'Eddy', location: "Mexico"},
+                         {name: 'Jose', location: "London"},{name: 'Isaac', location: "USA"},{name: 'Juan-luis', location: "Mexico"}];
 
-        this.libraries = [{label:'Select Library', value:null},{label:'Rome', value: {name: 'Rome'} },{label:'london', value:{name: 'London'} },{label:'USA', value:{name: 'USA'} },{label:'Mexico', value:{name: 'Mexico'} }];
+        this.libraries = [{label:'Select Library', value:'none'},{label:'Rome', value: {name: 'Rome'} },{label:'london', value:{name: 'London'} },{label:'USA', value:{name: 'USA'} },{label:'Mexico', value:{name: 'Mexico'} }];
 
 
         this.filteredBrothers = this.brothers;
@@ -85,12 +91,22 @@ export class LoggedInComponent {
     libraryFilter(event: any){
         console.log("filter by " + event.value.name);
         this.selectedLib = event.value.name;
+        this.filteredBrothers = [];
         //put this in a new function
-        let i: number;
-        for(i=0; i < this.brothers.length; i++){
-            console.log("info: " + this.brothers[i].location + " : " + event.value.name);
-            if(this.brothers[i].location == event.value.name)
-                console.log("brothers: " + this.brothers[i].name);
+        if(event.value == "none"){
+            this.filteredBrothers = this.brothers;
+        }else{
+            let i: number;
+            for(i=0; i < this.brothers.length; i++){
+                console.log("info: " + this.brothers[i].location + " : " + event.value.name);
+                if(this.brothers[i].location == event.value.name)
+                    this.filteredBrothers.push(this.brothers[i]);
+                    //console.log("brothers: " + this.brothers[i].name);
+            }
         }
+    }
+
+    filterBy(input: any){
+        console.log("filter Byyy: " + JSON.stringify(input));
     }
 }
