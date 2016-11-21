@@ -13,9 +13,10 @@ import {Observable} from 'rxjs/Observable';
 export class LogInComponent implements OnInit {
   @ViewChild('userInput') user: any;
   @ViewChild('paswInput') password: any;
-  userObs: Observable<FocusEvent>;
+
   userError: String = "";
   passError: String = "";
+  msgs: any[] = [];
 
 	constructor(private route: ActivatedRoute,
     			private router: Router,
@@ -25,11 +26,7 @@ export class LogInComponent implements OnInit {
 
   ngOnInit() {
     this.user.focus();
-    /*this.userObs.subscribe(
-                     value => console.log("value: " + JSON.stringify(value)),
-                     error => console.log("error: " + JSON.stringify(error)));*/
   }
-
 
   //call service and make service validate the inputs
   logIn(event: any) {
@@ -53,11 +50,20 @@ export class LogInComponent implements OnInit {
 
     if(userInput != "" && passInput != ""){
       //change to observable
-    	if(this.loginService.logIn(userInput,passInput)){
-    		this.router.navigate(['/']);
-    	}else{
-    		console.log("error");
-    	}
+      this.loginService.logIn(userInput,passInput).then(auth => {
+                                                                  console.log("auth: " + JSON.stringify(auth));
+                                                                  if(auth){  
+                                                                    this.msgs = [];
+                                                                    this.router.navigate(['/']);
+                                                                  }
+                                                                })
+                                                                .catch(error => {
+                                                                  console.log("auth: " + JSON.stringify(error));
+                                                                  this.msgs = [];
+                                                                  this.msgs.push({severity:'error', summary:'Error Message', detail: error.json().error});
+                                                                });
+    	
     }
   }
+
 }

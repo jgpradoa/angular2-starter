@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 
 import { GeoLocationService } from './../../services/geolocation.service';
+import { BrotherService } from './../../services/brother.service';
+import { LiveBrotherService } from './../../services/livebrother.service';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -19,7 +21,10 @@ import { Brother } from '../../model/brother';
 export class LoggedInComponent {
 
 	//add X in input
-  	brothers: Brother[];
+  	brothers: Brother[] = [];
+    //error msg
+    msgs: any[] = [];
+
     //search input
     filteredBrothers: any[] = [];
     brother: string;
@@ -28,6 +33,7 @@ export class LoggedInComponent {
     selectedLib: String;
 
     display: boolean = false;
+    displayError: boolean = false;
 
     showDialog() {
         this.display = true;
@@ -35,18 +41,28 @@ export class LoggedInComponent {
 
     //Observable
 
-    constructor(private geoLocationService:GeoLocationService){
-
-        this.brothers = [{name: 'Sebastian', location: "London"},{name: 'Christopher', location: "USA"},{name:'Kevin', location: "Rome"},
-                         {name:'Josue', location: "London"},{name: 'Juan', location: "USA"},{name: 'Eddy', location: "Mexico"},
-                         {name: 'Jose', location: "London"},{name: 'Isaac', location: "USA"},{name: 'Juan-luis', location: "Mexico"}];
+    constructor(private geoLocationService:GeoLocationService, private brotherService:BrotherService, private liveBrotherService:LiveBrotherService){
 
         this.libraries = [{label:'Select Library', value:'none'},{label:'Rome', value: {name: 'Rome'} },{label:'london', value:{name: 'London'} },{label:'USA', value:{name: 'USA'} },{label:'Mexico', value:{name: 'Mexico'} }];
 
+        brotherService.getAllBrother().then(brothers => {
+                                                            console.log("brothers: " + JSON.stringify(brothers));
+                                                            this.brothers = brothers;
+                                                            this.filteredBrothers = this.brothers;
+                                                        })
+                                                        .catch(error => {
+                                                            console.log("auth: " + JSON.stringify(error));
+                                                            this.displayError = true;
+                                                            this.msgs.push({severity:'error', summary:'Error Message', detail: error.json().error});
+                                                        });
 
         this.filteredBrothers = this.brothers;
         geoLocationService.getLocationSubj().subscribe((value: any) => console.log('Received value: ' + JSON.stringify(value)));
         geoLocationService.getLocation();
+
+        this.liveBrotherService.getMessages().subscribe(message => {
+          console.log("msg: " + JSON.stringify(message));
+        })
         
         console.log('done!');
 
@@ -108,5 +124,9 @@ export class LoggedInComponent {
 
     filterBy(input: any){
         console.log("filter Byyy: " + JSON.stringify(input));
+    }
+
+    sendMessage(){
+        this.liveBrotherService.sendMessage("this is awesome! ");
     }
 }

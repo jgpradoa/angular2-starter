@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { LogInRoutingModule } from './router/login-routing.module';
 
@@ -19,6 +20,7 @@ import { MessagesModule } from 'primeng/primeng';
     FormsModule,
     LogInRoutingModule,
     MessagesModule,
+    HttpModule,
     MaterialModule.forRoot()
   ],
   declarations: [

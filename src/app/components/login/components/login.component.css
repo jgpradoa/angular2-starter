@@ -10,7 +10,7 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 button {
-    background-color: #663399;
+    background-color: rebeccapurple;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -37,7 +37,7 @@ img.avatar {
 }
 
 span.psw {
-    padding-left: 47%;
+    /*padding-left: 47%;*/
 }
 
 /* The Modal (background) */
@@ -88,7 +88,7 @@ span.psw {
     }
 
     span.psw {
-        padding-left: 25%;
+        /*padding-left: 25%;*/
     }
 
     .container {
@@ -118,5 +118,17 @@ span.psw {
 }
 
 .demo-card {
-  margin: 16px;
+    margin-left: 25%;
+    width: 50%;
+}
+
+.md-input-placeholder .md-focused .md-input-underline .md-input-ripple{
+    color: rebeccapurple;
+}
+
+.login-ui-messages {
+    margin: 10 25%;
+    bottom: -10;
+    position: relative;
+    width: 50%;
 }

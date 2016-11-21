@@ -1,9 +1,8 @@
-.background{
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";       /* IE 8 */
-    filter: alpha(opacity=50);  /* IE 5-7 */
-    -moz-opacity: 0.5;          /* Netscape */
-    -khtml-opacity: 0.5;        /* Safari 1.x */
-    opacity: 0.5;               /* Good browsers */
+.search-div{
+  margin-left: 33.5%;
+  position: fixed;
+  z-index: 1;
+  display: none;
 }
 
 .demo-basic {
@@ -28,19 +27,17 @@
 }
 
 .card{
-  width: 23%; 
+  width: 30%; 
   display: inline-block; 
   margin: 5px;
 }
 
-.search-div{
-  margin-left: 40%;
-}
-
 .cards-div{
-  width: 94%; 
   background-color: transparent; 
   margin-left: 5%;
+  top: 4px;
+  padding-right: 0px;
+  padding-left: 15px;
 }
 
 .input-width {
@@ -63,10 +60,17 @@
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
+    margin: 10% auto; /* 15% from the top and centered */
+    /*padding: 20px;*/
     border: 1px solid #888;
     width: 30%; /* Could be more or less, depending on screen size */
+    height: 40%;
+}
+.modal-content-error {
+    margin: 1% 0% 0% 21%;
+    border: 1px solid #888;
+    width: 50%;
+    height: 70%;
 }
 
 /* The Close Button */
@@ -82,6 +86,17 @@
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.fieldset{
+  display: block;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding-top: 0.35em;
+  padding-bottom: 0.625em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  border: 2px groove (internal value);
 }
 
 @media (max-width: 480px) { 

@@ -1,3 +1,4 @@
+<p-growl [value]="msgs"></p-growl>
 <div class="row">
     <div class="col-s-12 col-lg-12 search-div">
        <p-autoComplete [(ngModel)]="brother" [suggestions]="filteredBrothers" (completeMethod)="filterBrands($event)" [size]="30"
@@ -11,23 +12,41 @@
         <button md-raised-button (click)="showDialog()" style="height: 30px;"><i class="fa fa-filter fa-lg" aria-hidden="true"></i></button>
     </div>
     
-    <div class="col-s-12 col-lg-12 cards-div">
-        <md-card *ngFor="let bro of filteredBrothers; let i = index;" class="card">
-           <md-card-title-group>
-              <img md-card-sm-image src="">
-              <md-card-title>{{bro.name}}</md-card-title>
+    <div class="col-s-12 col-lg-12 cards-div" style="overflow-y: scroll;">
+      <div style="">
+        <md-card *ngFor="let bro of filteredBrothers; let i = index;" class="card" style="height: 50%; width: 18%;">
+           <img md-card-image src="{{bro.picLocation}}" style="height: 75%; width: auto;">
+           <md-card-content>
+              <md-card-title style="font-size: 20px;" (click)="sendMessage()">{{bro.name}}</md-card-title>
               <md-card-subtitle>{{bro.location}}</md-card-subtitle>
-           </md-card-title-group>
+           </md-card-content>
         </md-card>
+    </div>
+    <div *ngIf="displayError">
+      <div class="modal-content-error" style="background-color: rebeccapurple;">
+        <div class="row" style="margin-top: 9%; width: 90%; margin-left: 4%;">
+            <img alt="Brand" src="../../../../imgs/error-pic.jpg" class="location-loading" style="margin-left: 25%; width: 50%;">
+        </div>
+        <div style="">
+            <h2 (click)="display=false" style="color: white; padding-left: auto;">{{msgs[0].detail}}</h2>
+        </div>
+      </div>
     </div>
 </div> 
 
 <div class="modal" *ngIf="display">
 
   <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close" (click)="display=false">x</span>
-    <p style="margin-left: 35%;">Filter By Library</p>
+  <div class="modal-content" style="background-color: rebeccapurple;">
+    <!-- <span class="close" (click)="display=false">x</span> -->
+    <div style="">
+        <h2 (click)="display=false" style="color: white; padding-left: 28%;">Obtaining Location</h2>
+    </div>
+    <div class="row" style="margin-top: 9%; width: 90%; border-bottom-width: 2px; border-bottom-color: White; border-bottom-style: solid; margin-left: 4%;">
+        <img alt="Brand" src="../../../../imgs/location-loading-2.gif" class="location-loading" style="padding-left: 36%;">
+    </div>
+    
+    <!-- <p style="margin-left: 35%;">Filter By Library</p>
     <div class="row" style="margin-left: 35%;">
         <md-checkbox (change)="filterBy('ML')">Marston Library</md-checkbox>
     </div>
@@ -38,7 +57,7 @@
     <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix" style="margin-left: 30%;">
             <button md-raised-button (click)="display=false">Filter</button>
             <button md-raised-button (click)="display=false">Clear</button>
-    </div>
+    </div> -->
   </div>
 
 </div>

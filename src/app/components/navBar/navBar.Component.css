@@ -1,117 +1,32 @@
 .white {color: #f2f2f2;}
 
-.logo { margin-top: 20px; }
+.logo { height: 19%; }
 
-.mobile{
-  display: none;
+.header-cont{
+  padding-left: 42%; 
+  padding-top: 1%;
 }
+
 .top-left{
-  padding: 3% 0 0 90%;
-}
-/*testing*/
-/* Profile container */
-.profile {
-  margin: 20px 0;
+  padding: 3% 0 0 0%;
+  float: left;
+  position: fixed;
+  z-index: 1;
 }
 
-/* Profile sidebar */
-.profile-sidebar {
-  padding: 20px 0 10px 0;
+.fa-own{
+    font-size: 2.5em;
 }
+/*
+  change format for portrait 
+@media (min-width: 768px) { 
+  .logo { height: 10%; }
 
-.profile-userpic img {
-  float: none;
-  margin: 0 auto;
-  width: 30%;
-  height: 10%;
-  -webkit-border-radius: 50% !important;
-  -moz-border-radius: 50% !important;
-  border-radius: 50% !important;
-}
-
-.profile-usertitle {
-  text-align: center;
-  margin-top: 5px;
-}
-
-.profile-usertitle-name {
-  color: #5a7391;
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 1px;
-}
-
-.profile-usertitle-job {
-  text-transform: uppercase;
-  color: #663399;
-  font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-
-.profile-userbuttons {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.profile-userbuttons .btn {
-  text-transform: uppercase;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 6px 15px;
-  margin-right: 5px;
-}
-
-.profile-userbuttons .btn:last-child {
-  margin-right: 0px;
-}
-    
-.profile-usermenu {
-  margin-top: 10px;
-  background: #fff;
-}
-
-.profile-usermenu ul li {
-  border-bottom: 1px solid #f0f4f7;
-}
-
-.profile-usermenu ul li:last-child {
-  border-bottom: none;
-}
-
-.profile-usermenu ul li a {
-  color: #93a3b5;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.profile-usermenu ul li a i {
-  margin-right: 8px;
-  font-size: 14px;
-}
-
-.profile-usermenu ul li a:hover {
-  background-color: #fafcfd;
-  color: #5b9bd1;
-}
-
-.profile-usermenu ul li.active {
-  border-bottom: none;
-}
-
-.profile-usermenu ul li.active a {
-  color: #663399;
-  background-color: #f6f9fb;
-  border-left: 2px solid #663399;
-  margin-left: -2px;
-}
-
-/* Profile Content */
-.profile-content {
-  padding: 20px;
-  background: #fff;
-  min-height: 460px;
-}
+  .header-cont{
+    padding-left: 34%; 
+    padding-top: 1%;
+  }
+}*/
 
 @media (max-width: 480px) { 
   .logo { 
@@ -121,32 +36,97 @@
     margin-top: 0px;
   }
 
+  .header-cont {
+    padding-left: 15%;
+    padding-top: 1%;
+  }
+
   .backGColor{
     background-color: #eee;
   }
 
   .menu-icon{
     display: inline-block; 
-    top: 0%; 
-    right: 12%; 
+    top: 3%; 
     position: fixed;
   }
-
-  .mobile{
-    display: inline-block; 
-    width: 100%;
-  }
-
-  .desktop{
-    display: none;
-  }
 }
 
-.active{
-  background-color: #e7e7e7;
+.menu {
+  background-color: rebeccapurple; 
+  height: 100%;
+  position: fixed;
+  z-index: 2;
+  position: fixed;
+  left: -15px;
 }
 
-.app-sidenav {
-  padding: 10px;
-  min-width: 100px;
+.menu ul {
+  border-top: 1px solid #636366;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  border-bottom: 1px solid #636366;
+  font-family: 'roboto', sans-serif;
+  line-height: 45px;
+  padding-bottom: 3px;
+  padding-left: 20px;
+  padding-top: 3px;
+}
+
+.menu a {
+  color: #fff;
+  font-size: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.profile-div {
+  cursor: pointer;
+  padding-right: 9%;
+  padding-left: 9%;
+  padding-top: 10px;
+  display: table-caption;
+}
+
+.icon-menu {
+  color: #fff;
+  cursor: pointer;
+  font-family: 'roboto', sans-serif;
+  font-size: 16px;
+  padding-bottom: 25px;
+  padding-left: 25px;
+  padding-top: 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.icon-menu i { margin-right: 5px; }
+
+.img-circle {
+    width: 160px;
+    margin: 10px;
+    border: 2px solid white;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+}
+
+.profile-name{
+  color: white;
+    font-size: 1.6em;
+    text-align: center;
+}
+
+.profile-location{
+  color: white;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.md-primary {
+  background: #FFEB3B;
 }

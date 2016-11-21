@@ -18,7 +18,7 @@ export class CanActivateUser implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-  	console.log("can activate");
+
   	//check if he is logged in
   	let auth: boolean = this.loginService.isLoggedIn();
   	//if auth is false redirect to login

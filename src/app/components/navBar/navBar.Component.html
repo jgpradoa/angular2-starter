@@ -1,133 +1,31 @@
-<!-- <div class="w3-container">
-    <ul class="topnav" id="myTopnav">
-      <li class="left"><i class="fa fa-bars white" aria-hidden="true" (mouseenter)="op2.show($event)" style="font-size:24px; vertical-align: 27px; padding-left: 10px;"></i><a class="textAlign" href="/">
-      <img alt="Brand" src="../../../../imgs/cropped-logo.png" class="header-image"></a></li>
-      
-      <li class="right" *ngIf="user">
-        <div style="position:absolute; right: 110px;">
-            <i class="fa fa-user w3-xxxlarge white" aria-hidden="true"></i>    
-        </div>
-        <div>
-            <br> 
-            <p class="white" style="display: inline-block; margin-top: 0.8cm; padding-right: 1.5cm;">First floor -- 8 hrs</p>
-        </div>
-      </li>
-    </ul>
-</div>
-<br> -->
-
-<!-- <p-overlayPanel #op2 [style]="{'kground-color':'transparent'}">
-  <div class="sidenav">  
-    <a class="closebtn" (click)="op2.toggle($event)"><i class="fa fa-times" aria-hidden="true"></i></a>
-    <a href="#"><i class="fa fa-home fa-2x" aria-hidden="true"></i> Home</a>
-    <a href="#"><i class="fa fa-cog fa-2x" aria-hidden="true"></i> Settings</a>
-    <a href="#"><i class="fa fa-info fa-2x" aria-hidden="true"></i> Hours info</a>
-  </div>
-</p-overlayPanel>
- -->
-
-<!-- <md-sidenav #sidenav mode="side" class="app-sidenav">
-  <a class="closebtn" (click)="sidenav.toggle()"><i class="fa fa-times" aria-hidden="true"></i></a>
-  <a href="#"><i class="fa fa-home fa-2x" aria-hidden="true"></i> Home</a>
-  <a href="#"><i class="fa fa-cog fa-2x" aria-hidden="true"></i> Settings</a>
-  <a href="#"><i class="fa fa-info fa-2x" aria-hidden="true"></i> Hours info</a>
-</md-sidenav>
-
-<md-toolbar color="nav-bar">
-  <button class="app-icon-button" (click)="sidenav.toggle()">
-    <i class="material-icons app-toolbar-menu">menu</i>
-  </button>
-
-  <img alt="Brand" src="../../../../imgs/cropped-logo.png" class="header-image logo">
-
-  <div *ngIf="user">
-    <span class="app-action">
-      
-      <button md-button [md-menu-trigger-for]="menu">
-        <md-icon class="icon">person</md-icon>
-        <span class="white" style="display: inline-block; top: 2%; right: 4%; position: fixed;">First floor -- 8 hrs</span>
-      </button>
-      <md-menu #menu="mdMenu" >
-        <button md-menu-item>Lemon</button>
-        <button md-menu-item>Lime</button>
-        <button md-menu-item>Banana</button>
-      </md-menu>
-    </span>
-     <div style="position:absolute; right: 110px;">
-        <i class="fa fa-user w3-xxxlarge white" aria-hidden="true"></i>    
-    </div>
-    <div>
-        <br> 
-        <p class="white" style="display: inline-block; margin-top: 0.8cm; padding-right: 1.5cm;">First floor -- 8 hrs</p>
-    </div> 
-  </div>
-</md-toolbar> -->
-
-
-
 <!-- Static navbar -->
 <nav class="navbar" style="background-color: transparent;">
   <div class="container-fluid">
 
     <div class="row">
-      <div class="col-sm-5 col-md-6">
-          <div class="navbar-header">
-            <img alt="Brand" src="../../../../imgs/cropped-logo.png" class="logo">
-          </div>
-      </div>
-      <div class="col-sm-5 col-md-6 offset-md-0">
-            <span class="white menu-icon"><i class="fa fa-bars fa-3x top-left" aria-hidden="true"></i></span>
-      </div>
-    </div>
-
-    <div class="mobile">
-      <div class="row profile backGColor">
-        <div class="col-md-3">
-          <div class="profile-sidebar">
-            <!-- SIDEBAR USERPIC -->
-            <div class="profile-userpic">
-              <img src="../../../../imgs/profile--picture.png" class="img-responsive" alt="">
-            </div>
-            <!-- END SIDEBAR USERPIC -->
-            <!-- SIDEBAR USER TITLE -->
-            <div class="profile-usertitle">
-              <div class="profile-usertitle-name">
-                Marcus Doe
+      <div class="col-sm-1 col-md-2" *ngIf="showSideNav">
+        <div class="menu" (click)="toggleNav()">
+              <!-- Menu icon -->
+               <div class="profile-div">
+                <img class="img-circle" src="../../imgs/titus.jpg">
+                <p class="profile-name">Jose Prado</p>
+                <p class="profile-location"><i class="fa fa-map-marker" aria-hidden="true"></i> Marston Library</p>
+                <p class="profile-location" (click)="signOff()"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign out</p>
               </div>
-              <div class="profile-usertitle-job">
-                Marston Library
-              </div>
-            </div>
-            <!-- END SIDEBAR USER TITLE -->
-            <!-- SIDEBAR MENU -->
-            <div class="profile-usermenu">
-              <ul class="nav">
-                <li class="active">
-                  <a href="#">
-                  <i class="glyphicon glyphicon-home"></i>
-                  Overview </a>
-                </li>
-                <li>
-                  <a href="#">
-                  <i class="glyphicon glyphicon-user"></i>
-                  Account Settings </a>
-                </li>
-                <li>
-                  <a href="#" target="_blank">
-                  <i class="glyphicon glyphicon-ok"></i>
-                  Tasks </a>
-                </li>
-                <li>
-                  <a href="#">
-                  <i class="glyphicon glyphicon-flag"></i>
-                  Help </a>
-                </li>
-              </ul>
-            </div>
-            <!-- END MENU -->
-          </div>
+              
+            <ul>
+              <li style="border-left: 5px solid white;"><a href="#"><i class="glyphicon glyphicon-home" style="padding-right: 5px;"></i>  Home</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-ok" style="padding-right: 5px;"></i>  Hours</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-user" style="padding-right: 5px;"></i>  Profile</a></li>
+            </ul>
         </div>
       </div>
-    </div><!--/end of mobile -->
+      <div class="col-sm-12 col-md-12 col-lg-12 col-lx-12">
+          <span class="white menu-icon top-left" *ngIf="user" (click)="toggleNav()"><i class="fa fa-bars fa-own" aria-hidden="true"></i></span>
+          <div class="navbar-header header-cont">
+            <img alt="Brand" src="../../../../imgs/cropped-logo-4.png" class="logo">
+          </div>
+      </div>
+    </div>
   </div><!--/.container-fluid -->
 </nav>
