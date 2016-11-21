@@ -1,9 +1,10 @@
  /// <reference path="../../../typings/globals/socket.io-client/index.d.ts" /> 
-
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import * as io from "socket.io-client";
 
+@Injectable()
 export class LiveBrotherService {
   private url = 'http://localhost:5000';  
   private socket: any;
@@ -24,4 +25,8 @@ export class LiveBrotherService {
     })     
     return observable;
   }  
+
+  close(){
+    this.socket.disconnect();
+  }
 }

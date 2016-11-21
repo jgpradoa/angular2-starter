@@ -64,6 +64,9 @@ export class LoggedInComponent {
           console.log("msg: " + JSON.stringify(message));
         })
         
+        //close socket connection
+        //this.liveBrotherService.close();
+
         console.log('done!');
 
         /*console.log('Latitude : ' + crd.latitude);
