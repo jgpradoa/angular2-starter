@@ -2,30 +2,54 @@
 <nav class="navbar" style="background-color: transparent;">
   <div class="container-fluid">
 
-    <div class="row">
-      <div class="col-sm-1 col-md-2" *ngIf="showSideNav">
+    <div class="row" *ngIf="user" >
+      <!-- starting default side-nav -->
+      <div class="col-sm-1 col-md-1" *ngIf="!showSideNav">
         <div class="menu" (click)="toggleNav()">
+          <ul>
+            <!-- Menu icon -->
+            <li style="padding-right: 10px;" pTooltip="Menu">><i class="fa fa-bars" style="padding-top: 10px; font-size: 30px; color: white;"></i></li>
+            <!-- Search icon -->
+            <li style="padding-right: 10px; padding-top: 10px;" pTooltip="Search"><i class="fa fa-search" style="margin-left: 4px; font-size: 30px; color: white;"></i></li>
+            <!-- Filter icon -->
+            <li style="padding-right: 10px; padding-top: 10px;" pTooltip="Filter"><i class="fa fa-filter" style="margin-left: 4px; font-size: 30px; color: white;"></i></li>
+          </ul>
+        </div>
+      </div>
+      <!-- end of default side-nav -->
+      <!-- starting wide side-nav -->
+      <div class="col-sm-2 col-md-3" *ngIf="showSideNav">
+        <div class="menu" (click)="toggleNav()" style="width: 11%;">
               <!-- Menu icon -->
-               <div class="profile-div">
+              <div class="profile-div">
                 <img class="img-circle" src="../../imgs/titus.jpg">
                 <p class="profile-name">Jose Prado</p>
-                <p class="profile-location"><i class="fa fa-map-marker" aria-hidden="true"></i> Marston Library</p>
-                <p class="profile-location" (click)="signOff()"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign out</p>
+                <p class="profile-location" pTooltip="Click to edit">  <i class="fa fa-map-marker" aria-hidden="true"></i> Marston Library</p>
               </div>
               
             <ul>
               <li style="border-left: 5px solid white;"><a href="#"><i class="glyphicon glyphicon-home" style="padding-right: 5px;"></i>  Home</a></li>
-              <li><a href="#"><i class="glyphicon glyphicon-ok" style="padding-right: 5px;"></i>  Hours</a></li>
+              <li><a href="#"><i class="fa fa-hourglass" style="padding-right: 5px;"></i>  Hours</a></li>
               <li><a href="#"><i class="glyphicon glyphicon-user" style="padding-right: 5px;"></i>  Profile</a></li>
+              <li (click)="signOff()"><a><i class="fa fa-sign-out" aria-hidden="true" style="padding-right: 5px;"></i>  Sign out</a></li>
+            </ul>
+            <ul>
+              <li><a href="#"><i class="fa fa-search" style="padding-right: 5px;"></i>  Search</a></li>
+              <li><a href="#"><i class="fa fa-filter" style="padding-right: 5px;"></i>  Filter</a></li>
             </ul>
         </div>
       </div>
+      <!-- end of wide side-nav -->
+      <!-- starting header-nav -->
       <div class="col-sm-12 col-md-12 col-lg-12 col-lx-12">
-          <span class="white menu-icon top-left" *ngIf="user" (click)="toggleNav()"><i class="fa fa-bars fa-own" aria-hidden="true"></i></span>
+          <!-- <span class="white menu-icon top-left" *ngIf="user" (click)="toggleNav()"><i class="fa fa-bars fa-own" aria-hidden="true"></i></span> -->
           <div class="navbar-header header-cont">
             <img alt="Brand" src="../../../../imgs/cropped-logo-4.png" class="logo">
           </div>
       </div>
+      <!-- end of header-nav -->
     </div>
-  </div><!--/.container-fluid -->
+    <!--/.row -->
+  </div>
+  <!--/.container-fluid -->
 </nav>

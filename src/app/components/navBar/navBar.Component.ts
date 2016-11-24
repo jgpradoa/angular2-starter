@@ -16,6 +16,7 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit() { 
   	//make it observable
+    this.user = true;
   	this.userService.loginObs().subscribe(
                                           function (loggedIn) {
                                               console.log('Next: ' + loggedIn.toString());

@@ -117,16 +117,22 @@
 
 .profile-name{
   color: white;
-    font-size: 1.6em;
-    text-align: center;
+  font-size: 1.6em;
+  text-align: center;
+  padding-left: 10px;
 }
 
 .profile-location{
   color: white;
-    font-size: 1.1em;
-    text-align: center;
+  font-size: 1.1em;
+  text-align: center;
+  padding-left: 5px;
 }
 
 .md-primary {
   background: #FFEB3B;
+}
+
+li:hover{
+  background-color: indigo;
 }

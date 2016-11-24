@@ -18,7 +18,7 @@ import { BrotherService } from '../services/brother.service';
 import { LiveBrotherService } from '../services/livebrother.service';
 
 //prime ng
-import {OverlayPanelModule, AutoCompleteModule, DropdownModule, DialogModule, GrowlModule} from 'primeng/primeng';
+import {OverlayPanelModule, AutoCompleteModule, DropdownModule, DialogModule, GrowlModule, TooltipModule} from 'primeng/primeng';
 //material
 import {MaterialModule} from '@angular/material';
 
@@ -36,6 +36,7 @@ import '../rxjs-extensions';
     DropdownModule,
     DialogModule,
     GrowlModule,
+    TooltipModule,
     MaterialModule.forRoot()
   ],
   declarations: [
